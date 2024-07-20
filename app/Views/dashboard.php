@@ -28,11 +28,14 @@
     <?php foreach ($allData as $data): ?>
     <div class="container-fluid pb-5">
 
-        <div class="row mx-2 pt-3 justify-content-around">
-            <div class="col-6">
-                <img src="<?= base_url('uploads/' . $data['foto']) ?>" alt="<?= $data['foto'] ?>" height="200">
-                <h5 class="pt-3">Selamat Datang, "<?php echo $data['nama_tengah'] . ' ' . $data['nama_belakang']; ?>"
-                </h5>
+        <div class="row mx-2 pt-3 justify-content-between">
+            <div class="col-2">
+                <div class="text-center">
+                    <img src="<?= base_url('uploads/' . $data['foto']) ?>" alt="<?= $data['foto'] ?>" height="200">
+                    <h5 class="pt-3">Selamat Datang,
+                        "<?php echo $data['nama_tengah'] . ' ' . $data['nama_belakang']; ?>"
+                    </h5>
+                </div>
             </div>
 
             <div class="col-2 text-end">

@@ -19,3 +19,6 @@ $routes->get('/edit', 'Edit::index');
 $routes->post('/edit', 'Edit::action');
 
 $routes->get('/tampilkan_data', 'TampilkanData::index');
+$routes->post('/delete', 'TampilkanData::delete');
+
+$routes->post('/excel', "TampilkanData::excel");

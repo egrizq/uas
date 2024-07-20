@@ -27,7 +27,7 @@ class Register extends BaseController
         $img = $this->request->getFile('foto');
         if ($img->isValid() && !$img->hasMoved()) {
             $img->move(ROOTPATH . 'public/uploads');
-        
+            
             $data = [
                 'nama_depan' => $this->request->getPost('nama_depan'),
                 'nama_tengah' => $this->request->getPost('nama_tengah'),

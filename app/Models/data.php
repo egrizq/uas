@@ -49,4 +49,11 @@ class Data extends Model
                         ->update($data);
     }
 
+    public function deleteData($id)
+    {
+        return $this->db->table('pendaftaran')
+                        ->where(['id_pendaftaran' => $id])
+                        ->delete();
+    }
+
 }
