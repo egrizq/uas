@@ -19,10 +19,10 @@ class Data extends Model
         exit();
     }
 
-    public function check_data($username, $password) 
+    public function check_data($username) 
     {
         return $this->db->table('pendaftaran')
-                        ->where(['username' => $username, 'password' => $password])
+                        ->where(['username' => $username])
                         ->get()->getRowArray();
     }
 
@@ -56,4 +56,20 @@ class Data extends Model
                         ->delete();
     }
 
+    public function search($keyword)
+    {
+        return $this->db->table('pendaftaran')
+                    ->like('nama_depan', $keyword)
+                    ->orLike('nama_tengah', $keyword)
+                    ->orLike('nama_belakang', $keyword)
+                    ->orLike('negara', $keyword)
+                    ->orLike('kota', $keyword)
+                    ->orLike('kode_pos', $keyword)
+                    ->orLike('jenis_kelamin', $keyword)
+                    ->orLike('nomor_handphone', $keyword)
+                    ->orLike('tanggal_lahir', $keyword)
+                    ->orLike('email', $keyword)
+                    ->get()
+                    ->getResultArray();
+    }
 }

@@ -25,6 +25,10 @@ class Register extends BaseController
             print_r('Choose a valid file');
         }
         $img = $this->request->getFile('foto');
+
+        $password = $this->request->getPost('password');
+        $hashPass = password_hash($password[0], PASSWORD_DEFAULT);
+
         if ($img->isValid() && !$img->hasMoved()) {
             $img->move(ROOTPATH . 'public/uploads');
             
@@ -43,7 +47,7 @@ class Register extends BaseController
                 'negara' => $this->request->getPost('negara'),
                 'kode_pos' => $this->request->getPost('kode_pos'),
                 'username' => $this->request->getPost('username'),
-                'password' => $this->request->getPost('password'),
+                'password' => $hashPass,
                 'foto' =>  $img->getName(),
                 'komentar' => $this->request->getPost('komentar'),
             ];

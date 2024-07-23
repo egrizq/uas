@@ -15,10 +15,10 @@
 
             <div class="col-3 border py-3">
                 <div class="text-center">
-                    <h3>Login</h3>
+                    <img class="navbar-brand" src="/undira.png" height="65">
                 </div>
 
-                <form method="POST" action="<?= base_url('/login');?>">
+                <form method="POST" action="<?= base_url('/login');?>" class="pt-3">
                     <div class="" data-mdb-input-init class="form-outline mb-4">
                         <label class="form-label fw-semibold" for="username">Username</label>
                         <input type="text" name="username" class="form-control form-control-md" placeholder="Username"

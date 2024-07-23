@@ -147,4 +147,32 @@ class TampilkanData extends BaseController
         exit;
     }
 
+    public function search()
+    {
+        $keyword = $this->request->getGet('keyword');
+        $model = new Data;
+
+        $allData = $model->search($keyword);
+        $allDataArr = [];
+        
+        foreach ($allData as $item) {
+            $allDataArr[] = [
+                'id_pendaftaran' => $item['id_pendaftaran'],
+                'nama_depan' => $item['nama_depan'],
+                'nama_tengah' => $item['nama_tengah'],
+                'nama_belakang' => $item['nama_belakang'],
+                'negara' => $item['negara'],
+                'kota' => $item['kota'],
+                'kode_pos' => $item['kode_pos'],
+                'jenis_kelamin' => $item['jenis_kelamin'],
+                'nomor_handphone' => $item['nomor_handphone'],
+                'tanggal_lahir' => $item['tanggal_lahir'],
+                'email' => $item['email'],
+            ];
+        }
+        $data['allData'] = $allDataArr;
+
+        return view("tampilkan_data", $data);
+    }
+
 }

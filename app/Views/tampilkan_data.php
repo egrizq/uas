@@ -14,8 +14,9 @@
         <div class="container-fluid">
             <div clas="row">
                 <img class="navbar-brand" src="/undira.png" height="45">
-                <a class="navbar-brand text-primary" href="<?= base_url('/'); ?>" role="button">Dashboard</a>
-                <a class="navbar-brand text-primary" href="<?= base_url('/'); ?>" role="button">Lihat Data</a>
+                <a class="navbar-brand text-primary" href="<?= base_url('/dashboard'); ?>" role="button">Dashboard</a>
+                <a class="navbar-brand text-primary" href="<?= base_url('/tampilkan_data'); ?>" role="button">Lihat
+                    Data</a>
             </div>
 
             <div>
@@ -33,9 +34,9 @@
 
                 <div class="row justify-content-between py-3">
 
-                    <div class="col-2">
-                        <input type="text" class="form-control form-control-md" placeholder="Search" />
-                    </div>
+                    <form class="col-2" method="GET" action="<?= base_url('/search');?>">
+                        <input type="text" name="keyword" class="form-control form-control-md" placeholder="Search" />
+                    </form>
 
                     <div class="col-2">
                         <form class="text-end" action="<?php echo site_url('/excel'); ?>" method="post">
